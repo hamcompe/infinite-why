@@ -1,0 +1,18 @@
+{
+  "name": "infinite-why",
+  "version": "1.0.0",
+  "main": "routes/api/webhook/index.js",
+  "author": "Pallop Chaoputhipuchong <pallop.chao@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "now dev"
+  },
+  "dependencies": {
+    "@line/bot-sdk": "^6.7.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "now": "^15.5.0"
+  }
+}
