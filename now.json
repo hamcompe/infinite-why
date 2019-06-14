@@ -11,5 +11,12 @@
       "src": "routes/**/*.js",
       "use": "@now/node"
     }
-  ]
+  ],
+  "env": {
+    "CHANNEL_ACCESS_TOKEN": "@channel_access_token",
+    "CHANNEL_SECRET": "@channel_secret",
+    "TEST_USER_ID": "@test_user_id",
+    "AIRTABLE_API_KEY": "@airtable_api_key",
+    "AIRTABLE_BASE": "@airtable_base"
+  }
 }

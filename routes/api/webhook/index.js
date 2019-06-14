@@ -1,5 +1,6 @@
 const app = require('../../../util/app')
-const { getClient, config } = require('../../../util/client')
+const { getClient, clientConfig } = require('../../../util/client')
+const { getRandomResponse } = require('../../../util/responses')
 const middleware = require('@line/bot-sdk').middleware
 const JSONParseError = require('@line/bot-sdk').JSONParseError
 const SignatureValidationFailed = require('@line/bot-sdk')
@@ -7,7 +8,7 @@ const SignatureValidationFailed = require('@line/bot-sdk')
 
 const client = getClient()
 
-app.use(middleware(config))
+app.use(middleware(clientConfig))
 app.use((err, req, res, next) => {
   if (err instanceof SignatureValidationFailed) {
     console.log('error', err)
@@ -27,9 +28,10 @@ app.post('*', async (req, res) => {
     const message = event.message
 
     if (message.type === 'text') {
+      const response = await getRandomResponse()
       await client.replyMessage(event.replyToken, {
         type: 'text',
-        text: 'ทำไม',
+        text: response,
       })
     }
   }
